@@ -8,4 +8,5 @@ import com.crud.assesment1.entity.Book;
 @Repository
 public interface BookRepository extends JpaRepository<Book, Long> {
 
+  Book findByBookName(String bookName);
 }

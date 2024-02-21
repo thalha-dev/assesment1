@@ -1,5 +1,7 @@
 package com.crud.assesment1.entity;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
+
 import jakarta.persistence.CascadeType;
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
@@ -31,4 +33,8 @@ public class Student {
   @ManyToOne(cascade = CascadeType.ALL)
   @JoinColumn(name = "book_id", referencedColumnName = "bookId")
   private Book currentBorrowedBook;
+  @ManyToOne(cascade = CascadeType.ALL)
+  @JoinColumn(name = "book_borrow_id", referencedColumnName = "bookBorrowId")
+  @JsonBackReference
+  private BookBorrowRecords currentBorrowedBookRecord;
 }

@@ -2,6 +2,8 @@ package com.crud.assesment1.entity;
 
 import java.sql.Date;
 
+import com.fasterxml.jackson.annotation.JsonManagedReference;
+
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
@@ -26,8 +28,10 @@ public class BookBorrowRecords {
   private Date dueDate;
   private Date returnedDate;
   private Integer fineAmount;
+  private String bookName;
   @ManyToOne
   @JoinColumn(name = "student_id", referencedColumnName = "studentId")
+  @JsonManagedReference
   private Student student;
   @ManyToOne
   @JoinColumn(name = "book_id", referencedColumnName = "bookId")
